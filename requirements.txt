@@ -26,6 +26,8 @@ pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
 PySocks @ file:///work/perseverance-python-buildout/croot/pysocks_1698845478203/work
 requests @ file:///croot/requests_1707355572290/work
 ruamel.yaml @ file:///work/perseverance-python-buildout/croot/ruamel.yaml_1698863605521/work
+scikit-learn==1.4.1.post1
+scipy==1.12.0
 setuptools==68.2.2
 threadpoolctl==3.3.0
 tqdm @ file:///work/perseverance-python-buildout/croot/tqdm_1701735729845/work

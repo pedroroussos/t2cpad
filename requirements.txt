@@ -8,3 +8,4 @@ threadpoolctl==3.3.0
 wheel==0.41.2
 flask==3.0.3
 pandas==2.2.1
+gunicorn==21.2.0

@@ -44,7 +44,7 @@ def addSong():
         global max_id
         max_id += 1
         song['id'] = max_id
-        SONGS.append(song)
+        SONGS[max_id] = song
         return {'id':max_id}, 201
     return {"erro":"Formato deve ser JSON"}, 415
 

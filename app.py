@@ -52,8 +52,8 @@ def addSong():
 #http://localhost:5000/song/<id>
 @app.delete("/song/<int:id>")
 def deleteSong(id):
-    for s in SONGS:
-        if(s['id'] == id):
-            SONGS.remove(s)
-            return "removido", 200
+    if id in SONGS:
+        del SONGS[id]
+        return "removido", 200
+        
     return {"erro": 'musica nao encontrada'}, 404

@@ -24,19 +24,35 @@ def getSong(id):
 
 # busca de uma múscica para um id específico
 # ID aqui deve ser passado como um argumento na URL
-# http://localhost:5000/country?id=valor
+# http://localhost:5000/song?id=valor
 @app.get("/song")
 def getSongByQuery():
     id = request.args.get('id',type=int)
     try: 
         return SONGS[id], 200
     except:
-        return {"erro": "Pais nao encontrado"}, 404
+        return {"erro": "musica nao encontrada"}, 404
+
+@app.put("/song/<int:id>")
+def updateSong(id):
+    try:
+        artist_name =  request.json["artist(s)_name"]
+        streams = request.json["streams"]
+        track_name = request.json["track_name"]
+
+        SONGS[id]["artist(s)_name"] = artist_name
+        SONGS[id]["streams"] = streams
+        SONGS[id]["track_name"] = track_name
+
+        return "updated", 200
+
+    except:
+        return {"erro": "id nao encontrado"}, 404
+
+    
 
 
 #Adiciona um nova música recebendo um JSON
-#content-type da mensagem precisa ser application/json
-#Não tem nenhum tipo de validação!
 @app.post("/song")
 def addSong():
     if request.is_json:
